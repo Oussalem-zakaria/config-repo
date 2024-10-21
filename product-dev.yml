@@ -16,7 +16,7 @@ spring:
       uri: http://localhost:8888
       fail-fast: true
       profile: dev
-      label: master
+      label: main
   boot:
     admin:
       client:
