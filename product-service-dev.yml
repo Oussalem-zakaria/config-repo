@@ -1,0 +1,35 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: product
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      profile: dev
+      label: master
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/product
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
