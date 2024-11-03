@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${DISCOVERY_SERVICE_URL:http://localhost:8761/eureka}
   instance:
     prefer-ip-address: true
 
@@ -13,14 +13,14 @@ spring:
     name: order
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: optional:configserver:${CONFIG_SERVICE_URL:http://localhost:8888}
       fail-fast: true
       profile: dev
       label: main
   boot:
     admin:
       client:
-        url: http://localhost:8080
+        url: ${ADMIN_SERVER_URL:http://localhost:8080}
   datasource:
     username: postgres
     url: jdbc:postgresql://localhost:5432/order
