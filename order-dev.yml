@@ -8,6 +8,12 @@ eureka:
   instance:
     prefer-ip-address: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 spring:
   application:
     name: order
