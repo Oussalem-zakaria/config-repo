@@ -28,9 +28,9 @@ spring:
   #     client:
   #       url: ${ADMIN_SERVER_URL:http://localhost:8080}
   datasource:
-    username: postgres
-    url: jdbc:postgresql://localhost:5432/order
-    password: admin
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+    url: jdbc:postgresql://postgres-db:5432/ordersdb
   jpa:
     hibernate:
       ddl-auto: update

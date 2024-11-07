@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: ${DISCOVERY_SERVICE_URL:http://localhost:8761/eureka}
+      defaultZone: ${DISCOVERY_SERVICE_URL:http://eureka-server:8761/eureka}
   instance:
     prefer-ip-address: true
 
@@ -19,19 +19,14 @@ spring:
     name: customer
   cloud:
     config:
-      uri: optional:configserver:${CONFIG_SERVICE_URL:http://localhost:8888}
+      uri: ${CONFIG_SERVICE_URL:http://config-server:8888}
       fail-fast: true
       profile: dev
       label: main
-  # boot:
-  #   admin:
-  #     client:
-  #       # url: http://localhost:8080
-  #       url: ${ADMIN_SERVER_URL:http://localhost:8080}
   datasource:
-    username: postgres
-    url: jdbc:postgresql://localhost:5432/customer
-    password: admin
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+    url: jdbc:postgresql://postgres-db:5432/ordersdb
   jpa:
     hibernate:
       ddl-auto: update
