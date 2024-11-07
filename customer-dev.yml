@@ -23,11 +23,11 @@ spring:
       fail-fast: true
       profile: dev
       label: main
-  boot:
-    admin:
-      client:
-        # url: http://localhost:8080
-        url: ${ADMIN_SERVER_URL:http://localhost:8080}
+  # boot:
+  #   admin:
+  #     client:
+  #       # url: http://localhost:8080
+  #       url: ${ADMIN_SERVER_URL:http://localhost:8080}
   datasource:
     username: postgres
     url: jdbc:postgresql://localhost:5432/customer
